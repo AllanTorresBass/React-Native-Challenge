@@ -5,9 +5,11 @@ import {Button,Image} from "react-native-elements";
 import VideoX from './VideoX';
  
 export const DisplayVideoGames = ({VideoGames}) => {
- 
+  // platforms
+  const [platforms, setPlatforms] = React.useState('');
   const [render, setRender] = React.useState(0);
   const [link, setLink] = React.useState(0);
+  const [name, setName] = React.useState(0);
   
   return (
     
@@ -25,7 +27,9 @@ export const DisplayVideoGames = ({VideoGames}) => {
             buttonStyle={styles.button}
             onPress={() =>
             { setRender(1);
-              setLink(e.url)
+              setLink(e.url);
+              setPlatforms(e.platforms);
+              setName(e.name);
             }
             }   
             key={i} 
@@ -42,7 +46,7 @@ export const DisplayVideoGames = ({VideoGames}) => {
 
    )
              :(
-               <VideoX setRender={setRender} link={link}/>
+               <VideoX setRender={setRender} link={link} platforms={platforms} name={name} />
              )
 
 
