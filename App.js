@@ -8,7 +8,7 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-        <SafeAreaProvider>
+        <SafeAreaProvider style={{width:'90%'}}>
         
            <DisplayVideoGames VideoGames={VideoGames}/>
         </SafeAreaProvider>
@@ -23,6 +23,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    width:'100%'
+    width:'100%',
   },
 });
