@@ -1,6 +1,7 @@
 export const VideoGames=[
     {
         "id": 3498,
+        "url": "https://media.rawg.io/media/stories-640/c10/c10ef05b12482e4d2c647c4e26138d5b.mp4",
         "name": "Grand Theft Auto V",
         "genres": [
             {
@@ -33,6 +34,7 @@ export const VideoGames=[
     {
         "id": 3328,
         "name": "The Witcher 3: Wild Hunt",
+        "url":"https://media.rawg.io/media/stories-640/619/6197079f588ae10e3fe87edad3ee2d43.mp4",
         "genres": [
             {
                 "id": 4,
@@ -67,6 +69,7 @@ export const VideoGames=[
     },
     {
         "id": 4200,
+        "url":"https://media.rawg.io/media/stories-640/fde/fde8aaeeab956f6b705bbb4161b09004.mp4",
         "name": "Portal 2",
         "genres": [
             {
@@ -97,6 +100,7 @@ export const VideoGames=[
     },
     {
         "id": 5286,
+        "url":"https://media.rawg.io/media/stories-640/02a/02ae488ef3392f85c002070b76fd6e37.mp4",
         "name": "Tomb Raider (2013)",
         "genres": [
             {
@@ -127,6 +131,7 @@ export const VideoGames=[
     },
     {
         "id": 5679,
+        url:"https://media.rawg.io/media/stories-640/706/706aad163bc0ff757ad963890175e000.mp4",
         "name": "The Elder Scrolls V: Skyrim",
         "genres": [
             {
@@ -155,6 +160,7 @@ export const VideoGames=[
     },
     {
         "id": 12020,
+        url:"https://media.rawg.io/media/stories-640/6bf/6bf9c27538426b187908bafd61160c3e.mp4",
         "name": "Left 4 Dead 2",
         "genres": [
             {
@@ -183,6 +189,7 @@ export const VideoGames=[
     },
     {
         "id": 4291,
+        url:"https://media.rawg.io/media/stories-640/0cc/0cca2e6569d5c6631b1c422116d3dd71.mp4",
         "name": "Counter-Strike: Global Offensive",
         "genres": [
             {
@@ -210,6 +217,7 @@ export const VideoGames=[
     },
     {
         "id": 13536,
+        url:"https://media.rawg.io/media/stories-640/727/72779f22fc89f5b492c1af76be79adfd.mp4",
         "name": "Portal",
         "genres": [
             {
@@ -240,6 +248,7 @@ export const VideoGames=[
     },
     {
         "id": 4062,
+        url:"https://media.rawg.io/media/stories-640/151/151157e3bb2dd3e3f1e5fbee39ccc69d.mp4",
         "name": "BioShock Infinite",
         "genres": [
             {
@@ -271,6 +280,7 @@ export const VideoGames=[
     },
     {
         "id": 802,
+        url:"https://media.rawg.io/media/stories-640/7fc/7fc5cc0196871480ac2a135642b6b915.mp4",
         "name": "Borderlands 2",
         "genres": [
             {

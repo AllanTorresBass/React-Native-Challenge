@@ -2,29 +2,53 @@ import React from 'react'
 import { ScrollView, StyleSheet, View } from 'react-native'
 import { Text } from 'react-native-elements'
 import {Button,Image} from "react-native-elements";
-
+import VideoX from './VideoX';
+ 
 export const DisplayVideoGames = ({VideoGames}) => {
-  let tam = VideoGames.length;
+ 
+  const [render, setRender] = React.useState(0);
+  const [link, setLink] = React.useState(0);
+  
   return (
     
        
       <ScrollView style={{width:'100%',top:10}}>
-          {
    
-           VideoGames.slice(0,9).map((e,i)=>{
+          {
+   render===0?(
+ VideoGames.slice(0,9).map((e,i)=>{
         
           return( 
+
             <Button
             title={<CustomGame name={e.name} i={i} genre={e.genres[0].name}/>}          
             buttonStyle={styles.button}
             onPress={() =>
-              navigation.navigate('Hvac')
+            { setRender(1);
+              setLink(e.url)
+            }
             }   
             key={i} 
             />
+           
+            
+
             
             )
-          })    
+          })
+          
+
+
+
+   )
+             :(
+               <VideoX setRender={setRender} link={link}/>
+             )
+
+
+          
+          
+
          
           }
             

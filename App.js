@@ -3,14 +3,17 @@ import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {VideoGames} from './json/GetVideoGame'
 import {DisplayVideoGames} from './components/DisplayVideoGames'
+
+ 
 export default function App() {
   
   
   return (
     <View style={styles.container}>
         <SafeAreaProvider style={{width:'90%'}}>
-        
+       
            <DisplayVideoGames VideoGames={VideoGames}/>
+          
         </SafeAreaProvider>
       <StatusBar style="auto" />
     </View>
