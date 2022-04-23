@@ -41,7 +41,7 @@ const CustomGame = ({name,i,genre}) => {
       backgroundColor:'transparent',  
       width:'100%'    
   }}>
-       <View style={{backgroundColor:'transparent',width:'60%' }}>
+       <View style={{backgroundColor:'transparent',width:'50%' }}>
           <Text style={styles.letterButton}>{name}</Text> 
           <Text style={styles.letterButton_}> genre: {genre}</Text>
        </View>
@@ -67,7 +67,7 @@ const CustomGame = ({name,i,genre}) => {
   };
 
 const styles = StyleSheet.create({
-  img:{width:110,height:100,right:0,borderRadius: 10, },
+  img:{width:110,height:100,left:0,borderRadius: 10, },
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -96,22 +96,21 @@ const styles = StyleSheet.create({
   letterButton:{
   
     color:'white',
-    fontSize:25,
-  marginTop:25,
+    fontSize:30,
+  marginTop:35,
     letterSpacing: -0.24,
-     height:60, width: '100%',
-     borderBottomWidth:1
+     height:70, width: '100%',
+     
   },
   letterButton_:{
   
     color:'white',
     fontSize:20,
-  marginTop:15,
+  marginTop:0,
     letterSpacing: -0.24,
      height:60, width: '100%',
      borderBottomWidth:2,
-     paddingLeft:30,
-    paddingRight:30,
+  
     textShadowColor:'black',
     textShadowOffset:{width: 5, height: 5},
     textShadowRadius:10,
