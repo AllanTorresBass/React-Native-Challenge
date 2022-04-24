@@ -4,6 +4,7 @@ import { Text } from 'react-native-elements'
 import {Button,Image} from "react-native-elements";
 import VideoX from './VideoX';
 import { Icon } from 'react-native-elements'
+import SelectDropdown from 'react-native-select-dropdown'
 export const DisplayVideoGames = ({VideoGames}) => {
   // platforms
   const [platforms, setPlatforms] = React.useState('');
@@ -12,47 +13,101 @@ export const DisplayVideoGames = ({VideoGames}) => {
   const [name, setName] = React.useState(0);
   const [begin, setBegin] = React.useState(0);
   const [end, setEnd] = React.useState(3);
-  
+  const [genre, setGenre] = React.useState('');
+  const dropdownRef = React.useRef({}); 
+  const countries = ["Action", "Adventure", "Shooter"]
   return (
     
        
       <ScrollView style={{width:'100%',top:10}}>
+        {/* Bloque #1 */}
   <View  style={{flex:1,flexDirection:'row' ,height:50,backgroundColor:'transparent',top:20}}> 
-    <View style={{width:'25%',height:'25%' }} >
-    
-     <Image style={styles.img2} 
-     source={{uri :'https://media.rawg.io/media/resize/200/-/screenshots/557/557e77792080432742bda068bf810f9a.jpg'}} /> 
-    </View>
-    <View style={{width:'25%',height:'25%' }} >  
-     <Image style={styles.img2} 
-     source={{uri :'https://media.rawg.io/media/resize/200/-/screenshots/dcd/dcdc4fed1cea552c6dfa683eec0babd2.jpg'}} />
-    </View>
-    <View style={{width:'25%',height:'25%' }} > 
+      <View style={{width:'25%',height:'25%' }} >
+      
       <Image style={styles.img2} 
-     source={{uri :'https://media.rawg.io/media/resize/200/-/screenshots/2ae/2aef8f900b9a5ade7ee132e931f9c0d7.jpg'}} />
-   </View>
-    <View style={{width:'25%',height:'25%' }} > 
-     <Image style={styles.img2} 
-     source={{uri :'https://media.rawg.io/media/resize/200/-/screenshots/b76/b768ead45ed101055c711331916171a8.jpg'}} />
+      source={{uri :'https://media.rawg.io/media/resize/200/-/screenshots/557/557e77792080432742bda068bf810f9a.jpg'}} /> 
+      </View>
+      <View style={{width:'25%',height:'25%' }} >  
+      <Image style={styles.img2} 
+      source={{uri :'https://media.rawg.io/media/resize/200/-/screenshots/dcd/dcdc4fed1cea552c6dfa683eec0babd2.jpg'}} />
+      </View>
+      <View style={{width:'25%',height:'25%' }} > 
+        <Image style={styles.img2} 
+      source={{uri :'https://media.rawg.io/media/resize/200/-/screenshots/2ae/2aef8f900b9a5ade7ee132e931f9c0d7.jpg'}} />
     </View>
-   
+      <View style={{width:'25%',height:'25%' }} > 
+      <Image style={styles.img2} 
+      source={{uri :'https://media.rawg.io/media/resize/200/-/screenshots/b76/b768ead45ed101055c711331916171a8.jpg'}} />
+      </View>
+    
   </View>
-  <View><Text style={{color:'white',top:0,fontSize:55, letterSpacing: -0.24,
-     height:100, 
-     borderBottomWidth:2,
-     left:50,
-     
-    textShadowColor:'#EEA111',
-    textShadowOffset:{width: 5, height: 5},
-    textShadowRadius:10,height:150}}>Video Games</Text></View>
 
+
+  
+   <View style={{alignItems:'center'}}>
+        <Text style={{color:'white',top:0,fontSize:55, letterSpacing: -0.24,
+        height:80, 
+        borderBottomWidth:2,
+        left:0,
+        top:-30,
+        
+        textShadowColor:'#EEA111',
+        textShadowOffset:{width: 5, height: 5},
+        textShadowRadius:10,height:60}}>Video Games</Text>
+    </View>
+  {/* Block #2 */}   
+
+{ render===0? (<View style={{flex:1,flexDirection:'row'}}>
+        <SelectDropdown
+          data={countries}
+          ref={dropdownRef}  
+          onSelect={(selectedItem, index) => {
+            console.log(selectedItem, index)
+            setGenre(selectedItem);
+            setBegin(0);
+            setEnd(6);
+          }}
+          buttonTextAfterSelection={(selectedItem, index) => {
+            // text represented after item is selected
+            // if data array is an array of objects then return selectedItem.property to render after item is selected
+            return selectedItem
+          }}
+          rowTextForSelection={(item, index) => {
+            // text represented for each item in dropdown
+            // if data array is an array of objects then return item.property to represent item in dropdown
+            return item
+          }}
+          buttonStyle={{backgroundColor:'#6C7592',borderRadius:20, borderWidth: 1, borderColor: '#EEA111',}}
+          buttonTextStyle={{color:'white'}}
+          dropdownStyle={{color:'white',backgroundColor:'black',borderRadius:20, borderWidth: 1, borderColor: '#EEA111',}}
+          rowTextStyle={{color:'white',backgroundColor:'#6C7592',borderRadius:20, borderWidth: 1, borderColor: '#EEA111',}}
+        />
+        {genre!=''?<Button title={'X'}
+        buttonStyle={{backgroundColor:'#6C7592',borderRadius:20, borderWidth: 1, borderColor: '#EEA111',width:40,height:50,left:1}}
+      
+          onPress={() =>
+            {  
+              
+                setBegin(0);
+                setEnd(3);
+                setGenre('');
+                dropdownRef.current.reset()
+            }
+          
+      
+        } 
+        />
+        :<></>
+      }
+  </View> ):<></>  }    
 
     {/* ///////////////////////////////////////////////////////////////// */}
           {
    render===0?(
  VideoGames.slice(begin,end).map((e,i)=>{
-        
-          return( 
+
+       if(genre!='')if(e.genres[0].name===genre)
+          {return( 
 
             <Button
             title={<CustomGame name={e.name} i={i} genre={e.genres[0].name} begin={begin}/>}          
@@ -70,7 +125,30 @@ export const DisplayVideoGames = ({VideoGames}) => {
             
 
             
-            )
+            )}
+            if(genre===''){ return( 
+
+              <Button
+              title={<CustomGame name={e.name} i={i} genre={e.genres[0].name} begin={begin}/>}          
+              buttonStyle={styles.button}
+              onPress={() =>
+              { setRender(1);
+                setLink(e.url);
+                setPlatforms(e.platforms);
+                setName(e.name);
+              }
+              }   
+              key={i} 
+              />
+             
+              
+  
+              
+              )    }
+
+
+
+
           })
           
 
@@ -142,7 +220,7 @@ const CustomGame = ({name,i,genre,begin}) => {
           <Text style={styles.letterButton_}> genre: {genre}</Text>
        </View>
        
-       <View style={{backgroundColor:'transparent',width:'50%',height:93,left:'50%',top:30}}>  
+       <View style={{backgroundColor:'transparent',width:'50%',height:'100%',left:'50%',top:40}}>  
 {   
         
   i===0?( <Image style={styles.img} source={{uri :'https://media.rawg.io/media/resize/200/-/screenshots/a7c/a7c43871a54bed6573a6a429451564ef.jpg'}} />)
@@ -165,8 +243,8 @@ const CustomGame = ({name,i,genre,begin}) => {
   };
 
 const styles = StyleSheet.create({
-  img2:{width:'100%',height:100,left:0,borderRadius: 40,opacity: 0.6, },
-  img:{width:110,height:100,left:0,borderRadius: 10, },
+  img2:{width:'100%',height:70,left:0,borderRadius: 40,opacity: 0.8, },
+  img:{width:110,height:90,left:0,borderRadius: 10 },
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -185,7 +263,7 @@ const styles = StyleSheet.create({
     borderColor: '#EEA111',
     borderRadius: 10,
     width: '100%',
-    height: 120,
+    height: 100,
       marginTop:10,
       marginBottom:10,
       marginLeft:0,
@@ -216,8 +294,8 @@ const styles = StyleSheet.create({
   letterButton_:{
   
     color:'white',
-    fontSize:20,
-  marginTop:0,
+    fontSize:18,
+  marginTop:5,
     letterSpacing: -0.24,
      height:60, width: '100%',
      borderBottomWidth:2,

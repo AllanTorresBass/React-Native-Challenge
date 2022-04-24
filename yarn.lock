@@ -4609,6 +4609,11 @@
   "resolved" "https://registry.npmjs.org/react-native-safe-area-context/-/react-native-safe-area-context-4.2.4.tgz"
   "version" "4.2.4"
 
+"react-native-select-dropdown@^1.13.0":
+  "integrity" "sha512-UGXWbuEqsG6B6O+tle77yJH3+DXfmh4cpit0v8az824y0rZLUWuRzlfeLYlaeZ80mqIF6Xtvx/pBtIsG1OdaLg=="
+  "resolved" "https://registry.npmjs.org/react-native-select-dropdown/-/react-native-select-dropdown-1.13.0.tgz"
+  "version" "1.13.0"
+
 "react-native-size-matters@^0.3.1":
   "integrity" "sha512-mKOfBLIBFBcs9br1rlZDvxD5+mAl8Gfr5CounwJtxI6Z82rGrMO+Kgl9EIg3RMVf3G855a85YVqHJL2f5EDRlw=="
   "resolved" "https://registry.npmjs.org/react-native-size-matters/-/react-native-size-matters-0.3.1.tgz"
